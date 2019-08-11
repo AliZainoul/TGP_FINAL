@@ -1,0 +1,61 @@
+<html>
+
+<% if @user.errors.any? %>
+<div class="alert alert-danger" role="alert">
+  <p>We couldn't create the user because :</p>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<body>
+  <h1 style="padding-bottom: 80px">New user</h1>
+
+
+
+  <!-- ... -->
+  <%= form_tag url_for(action: 'create'), method: "post", class: "form" do %>
+
+  <%= label_tag 'First Name' %>
+  <%= text_field_tag 'first_name'%>
+  <br /> <br />
+  <%= label_tag 'Last Name' %>
+  <%= text_field_tag 'last_name'%>
+  <br /> <br />
+
+  <%= label_tag 'Email' %>
+  <%= text_field_tag 'email'%>
+  <br /> <br />
+
+  <%= label_tag 'City' %>
+  <%= text_field_tag 'city_name'%>
+  <br /> <br />
+
+  <%= label_tag 'Zip code' %>
+  <%= text_field_tag 'zip_code'%>
+  <br /> <br />
+
+  <%= label_tag 'Password' %>
+  <%= text_field_tag 'password'%>
+  <br /> <br />
+
+
+  <%= label_tag 'Description' %>
+  <%= text_area_tag 'description'%>
+  <br /> <br />
+
+
+  <%= submit_tag "Create user" %>
+
+
+
+  <% end %>
+
+
+  <!-- ... -->
+</body>
+
+</html>

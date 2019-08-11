@@ -1,0 +1,14 @@
+<html>
+  <h1>Edit Comment</h1>
+  <body>
+    <%= form_for ([@gossip, @comment])do |f| %>
+      <div>
+        <label> Content </label>
+        <%= f.text_area :content, class: 'form-control' %>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary"> Edit </button>
+      </div>
+    <% end %>
+  </body>
+</html>

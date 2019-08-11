@@ -1,0 +1,27 @@
+<html>
+
+  <% if @gossip.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p>We couldn't create the Gossip because :</p>
+    <ul>
+      <% @gossip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <body>
+    <h1 style="padding-bottom: 80px">New Gossip</h1>
+    <%= form_tag url_for(action: 'create'), method: "post", class: "form" do %>
+      <%= label_tag 'Title' %>
+      <%= text_field_tag 'title'%>
+      <br/> <br/>
+      <%= label_tag 'Content' %>
+      <%= text_area_tag 'content'%>
+      <br/> <br/>
+      <%= submit_tag "Create Gossip" %>
+    <% end %>
+  </body>
+
+</html>
